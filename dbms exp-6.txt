@@ -1,0 +1,45 @@
+#hello world program using procedures
+create procedure hello_world
+ As
+ Begin
+       DBMS_OUTPUT.PUT_LINE('Hello World!');
+ End;
+ /
+
+#now to execute above program
+EXEC hello_world;
+
+
+add 'welcome to sit' after 'hello world!'
+create or replace procedure hello_world
+ As
+ Begin
+       DBMS_OUTPUT.PUT_LINE('Hello World!, Welcome to SIT');
+ End;
+ /
+
+
+
+#Addition of two numbers
+create OR REPLACE procedure add_nos(
+       num1 number :=5,
+       num2 number :=10
+       )
+as 
+   begin
+     DBMS_OUTPUT.PUT_LINE('RESULT: ' || NUM1+NUM2);
+   END;
+  /
+
+
+#swaping two numbers
+create OR REPLACE SwapNumbers(
+num1 IN OUT NUMBER,
+num2 IN OUT NUMBER
+) AS
+  BEGIN
+      num1:=num1+num2;
+      num2=num1-num2;
+      num1:=num1-num2;
+  END;
+ /

@@ -1,0 +1,30 @@
+alter table department modify name varchar2(30);
+alter table department modify building2(30) not null;
+desc department;
+
+1.how to rename the field name:
+alter table tablename rename field to newfield;
+
+2.check both the table that is department and instructor
+select * from instructor;
+select *  from department; 
+
+3.increase salary of each instruct in comp sci by 10%
+update instructor set salary = salary + salary * .1 where dept_id = (select dept_id from department where name = 'computer science')
+
+4.increase 5% of those less than 80000
+update instructor set salary = salary + salary * .05 where salary<80000;
+
+5.condition is salary is above 80000 but below 85000 deduce 5%
+update instructor set salary = salary - salary * .05 where salary<85000 and salary>80000;
+
+6. create new course "CS-001", titled "Weekly Seminar", with 1 credits.
+desc course; 
+select * from course;
+insert into course (course_id, title, dept_id, credits) values ('Cs-001', 'Weekly Seminar', 1, 1);
+
+create a section of this course in fall 2017, with sec_id of 1, and with the location of this section not yet specified. 
+insert into section (section_id, course_id, sec_id, semester, year) values (8, 'CS-001', 1, 'FALL', 2017);
+
+7. to delete tuple: 
+delete from table where condition;
